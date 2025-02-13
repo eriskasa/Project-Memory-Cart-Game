@@ -15,7 +15,7 @@ export default function CartsDisplay() {
 
   const fetchPokemonData = async () => {
     try {
-      const pokemonNumbers = Array.from({ length: 10 }, () =>
+      const pokemonNumbers = Array.from({ length: 12 }, () =>
         Math.floor(Math.random() * 898) + 1
       );
       const pokemonPromises = pokemonNumbers.map(async (number) => {
