@@ -15,10 +15,13 @@ export default function CartsDisplay() {
 
   const fetchPokemonData = async () => {
     try {
-      const pokemonNumbers = Array.from({ length: 12 }, () =>
-        Math.floor(Math.random() * 898) + 1
-      );
-      const pokemonPromises = pokemonNumbers.map(async (number) => {
+      const pokemonNumbers =  new Set; 
+
+      while (pokemonNumbers.size < 12) {
+        pokemonNumbers.add(Math.floor(Math.random() * 898) + 1);
+      }
+
+      const pokemonPromises = [...pokemonNumbers].map(async (number) => {
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${number}`);
         return response.data;
       });
